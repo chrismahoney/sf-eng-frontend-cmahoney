@@ -1,4 +1,4 @@
-# sf-eng-frontend-cmahoney
+# Clear Connect
 This project is a basic React application for use while interacting with the Schmidt Futures TGT Team test backend. Tl,dr;? Go ahead and click [here](#getting-started) to fast-forward to getting started.
 
 ## Assessment Project Review
@@ -18,8 +18,15 @@ The primary technologies used in this project are:
 - Started to reach for [Axios](https://github.com/axios/axios) for API calls which I have used on several projects, until encountering the updates to React Router. I chose to instead use standard fetch() calls for this project to keep the dependencies to a minimum while reducing the risk on this short-term exercise. Time to get started.
 
 ## Getting Started
-1. Make sure to have Docker running per the exercise instructions, and use the `hello-world` tutorial deployment if you are new to using containerized hardware.
-2. 
+
+### Docker/Docker Compose
+- To use Docker (recommended), make sure to have Docker running per the exercise instructions for the backend, and use the `hello-world` tutorial deployment if you are new to using containers. 
+- The docker image can be built from this repo using `docker image build -t sf-eng-frontend-cmahoney:latest .`
+- Included docker-compose.yml file can be used to deploy the frontend, this would be intended to be used in conjunction with the backend deployment in a combined compose file.
+
+### Manual Execution
+Alternatively, the frontend can be executed using `yarn install`:
+
 ```
 yarn install
 yarn run dev
@@ -27,3 +34,4 @@ yarn run dev
 
 This will deploy the development server at `http://localhost:5173`, at which point you can then begin interacting with the application.
 
+## The Interface

@@ -38,7 +38,7 @@ const OrgList = () => {
   return (
     <Stack>
       <Title order={2}>
-        Organization List
+        Organizations
       </Title>
       <DataTable
         tableHeaders={tableHeaders}

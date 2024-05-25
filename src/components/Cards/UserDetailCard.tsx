@@ -1,4 +1,5 @@
-import { Avatar, Title, Text, Tree, Grid, Paper } from '@mantine/core';
+import { Avatar, Title, Text, Grid, Paper, Stack, Group, SimpleGrid, Flex } from '@mantine/core';
+import D3VisualizerBase from '../Charting/Visualizers/D3VisualizerBase';
 
 export default function UserDetailCard (props) {
   const {
@@ -6,56 +7,90 @@ export default function UserDetailCard (props) {
   } = props;
 
   // Map interests to Tree data model
-  const interestData = user.interested_in.map((interest) => { 
+  const interestData = user.interested_in?.map((interest) => { 
     return {
-      value: interest,
-      label: interest
+      name: interest,
+      label: interest,
+      value: 100.0/user.interested_in.length-1
     }
   });
-  const matchData = user.matches.map((match) => {
+  const matchData = user.matches?.map((match) => {
     return {
-      value: match.role,
-      label: match.role
+      name: `${match.role} (${match.match_level}%)`,
+      label: match.role,
+      value: 100.0/user.matches.length-1
     }
-  })
-  console.log('Interests', interestData);
+  });
+  console.log(matchData);
+
+  const data = {
+    name: "flare",
+    children: [
+      {
+        name: "interests",
+        children: interestData
+      },
+      {
+        name: "matches",
+        children: matchData
+      }
+    ]
+  };
 
   return (
     <Grid>
-      <Grid.Col span={12}>
-        <Paper radius="md" mih={200} withBorder p="lg" bg="var(--mantine-color-body)">
+      <Grid.Col span={{ xs: 12, md: 4 }}>
+        <Paper mih={150} shadow="sm" radius="md" withBorder p="sm" bg="var(--mantine-color-body)">
           <Avatar
             src={user.user_image}
-            size={'xl'}
-            radius={'lg'}
-            mx='auto'
+            size={'lg'}
+            radius={'xl'}
+            m={0}
+            mb={"sm"}
           />
-          <Text ta="center" fz="lg" fw={700} mt="md">
-            {user.first_name} {user.last_name}
-          </Text>
-          <Text ta="center" c="dimmed" fz="sm">
-            {user.email ? user.email : 'Email Not Available'}
-          </Text>
+          <Stack gap="xs" justify="flex-start" align="flex-start">
+            <Text fz="lg" fw={700} m={0}>
+              {user.first_name} {user.last_name}
+            </Text>
+            <Text c="dimmed" fz={"xs"} m={0}>
+              {user.email ? user.email : 'Email Not Available'}
+            </Text>
+          </Stack>
         </Paper>
       </Grid.Col>
-      <Grid.Col span={6}>
-        <Paper radius="md" mih={200} withBorder p="lg" bg="var(--mantine-color-body)">
-          <Title order={4}>
-            Your Role Interests
-          </Title>
-          <Tree 
-            data={interestData ? interestData : [{ value: "None", label: "None Specified"}]} 
-          />
+      <Grid.Col span={{ xs: 12, sm: 6, md: 4 }}>
+        <Paper mih={150} shadow="sm" radius="sm" withBorder p="sm" bg="var(--mantine-color-body)">
+          <Stack gap="xs">
+            <Title order={4}>Role Interests:</Title>
+            {user.interested_in ? (
+              <Title order={1}>{user.interested_in.length} role(s)</Title>
+            ) : (
+              <Text>No Data Available</Text>
+            )}
+          </Stack>
         </Paper>
       </Grid.Col>
-      <Grid.Col span={6}>
-        <Paper radius="md" mih={200} withBorder p="lg" bg="var(--mantine-color-body)">
-          <Title order={4}>
-            Your Matches
-          </Title>
-          <Tree
-            data={matchData ? matchData : [{ value: "None", label: "None Available" }]}
-          />
+      <Grid.Col span={{ xs: 12, sm: 6, md: 4 }}>
+        <Paper mih={150} shadow="sm" radius="sm" withBorder p="sm" bg="var(--mantine-color-body)">
+          <Stack gap="xs">
+            <Title order={4}>Role Matches:</Title>
+            {user.matches ? (
+              <Title order={1}>{user.matches.length} role(s)</Title>
+            ) : (
+              <Text>No Data Available</Text>
+            )}
+          </Stack>
+        </Paper>
+      </Grid.Col>
+      <Grid.Col span={{ sm: 12 }}>
+        <Paper shadow="sm" radius="sm" withBorder p="lg" bg="var(--mantine-color-body)">
+          {(interestData?.length > 0 || matchData?.length > 0) ? (
+            <D3VisualizerBase
+              data={data}
+            />
+          ) : (
+            <Text>No Data Available</Text>
+          )}
         </Paper>
       </Grid.Col>
     </Grid>

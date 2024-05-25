@@ -31,27 +31,28 @@ import ErrorRoute from './routes/error-route';
 const fetchOrgs = async (options: any) => {
   const page_num = options.page_num || 1;
   const page_size = options.page_size || 10;
-  const org_id = options.org_id || '';
+  const org_name = options.org_name || '';
 
-  const response = await fetch(`http://localhost:3000/matches_by_org?org_id=${org_id}&page_num=${page_num}&page_size=${page_size}`);
+  const response = await fetch(`http://localhost:3000/matches_by_org/?org_name=${org_name}&page_num=${page_num}&page_size=${page_size}`);
   return await response.json();
 };
 const fetchOrg = async ({ params }) => {
-  return await fetchOrgs({ org_id: params.org_id });
+  return await fetchOrgs({ org_name: params.org_name });
 };
+
 const fetchUsers = async (options: any) => {
   const page_num = options.page_num || 1;
   const page_size = options.page_size || 10;
   const user_id = options.user_id || '';
 
-  const response = await fetch(`http://localhost:3000/matches_by_user?user_id=${user_id}&page_num=${page_num}&page_size=${page_size}`);
+  const response = await fetch(`http://localhost:3000/matches_by_user/?user_id=${user_id}&page_num=${page_num}&page_size=${page_size}`);
   return await response.json();
 };
 const fetchUser = async ({ params }) => {
   return await fetchUsers({ user_id: params.user_id });
 };
-const fetchRandomUser = async ({ params }) => {
-  return await fetchUsers({ user_id: Math.floor(Math.random() * 100) });
+const fetchRandomUser = async () => {
+  return await fetchUsers({ user_id: Math.floor(Math.random() * 1000) });
 }
 
 const router = createBrowserRouter(
@@ -61,7 +62,7 @@ const router = createBrowserRouter(
     >
       <Route path="/" element={<Home />} />
       <Route path="/orgs" element={<OrgList />} loader={fetchOrgs} />
-      <Route path="/orgs/:org_id" element={<OrgDetail />} loader={fetchOrg} />
+      <Route path="/orgs/:org_name" element={<OrgDetail />} loader={fetchOrg} />
 
       <Route path="/users" element={<UserList />} loader={fetchUsers} />
       <Route path="/users/:user_id" element={<UserDetail />} loader={fetchUser} />

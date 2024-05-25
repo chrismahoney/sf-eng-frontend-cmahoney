@@ -19,8 +19,8 @@ const UserList = () => {
       <Table.Th>First Name</Table.Th>
       <Table.Th>Last Name</Table.Th>
       <Table.Th>Email</Table.Th>
-      <Table.Th>Matches</Table.Th>
       <Table.Th>Interested In</Table.Th>
+      <Table.Th>Matches</Table.Th>
     </Table.Tr>
   );
 

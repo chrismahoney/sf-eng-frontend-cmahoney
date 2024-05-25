@@ -1,11 +1,7 @@
-import { Group, Stack, Title } from "@mantine/core";
 import OrgDetailCard from "../components/Cards/OrgDetailCard";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 function OrgDetail () {
-  const params = useParams();
-  console.log('OrgDetail params: ', params);
-
   const org = useLoaderData();
 
   if (org.isLoading) {
@@ -21,13 +17,9 @@ function OrgDetail () {
   console.log('Org detail:', org);
 
   return (
-    <Stack>
-      <Group>
-        <Title order={2}>
-          Organization Detail
-        </Title>
-      </Group>
-    </Stack>
+    <OrgDetailCard
+      org={org}
+    />
   );
 }
 
