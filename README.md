@@ -35,3 +35,4 @@ yarn run dev
 This will deploy the development server at `http://localhost:5173`, at which point you can then begin interacting with the application.
 
 ## The Interface
+Will populate this section ahead of discussion.
