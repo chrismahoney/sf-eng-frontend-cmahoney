@@ -11,7 +11,7 @@ export default function DataTable(props) {
   } = props;
 
   return (
-    <Stack justify="stretch">
+    <Stack justify="stretch" miw={400}>
       <Table 
         cellSpacing={0}
         striped

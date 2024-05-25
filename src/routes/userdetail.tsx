@@ -1,5 +1,6 @@
 import { Group, Stack, Title } from "@mantine/core";
 import UserDetailCard from "../components/Cards/UserDetailCard";
+import UserInterestCard from "../components/Cards/UserInterestCard";
 import { useLoaderData, useParams } from "react-router-dom";
 
 function UserDetail () {
@@ -21,16 +22,16 @@ function UserDetail () {
   console.log('User detail:', user);
 
   return (
-    <Stack>
-      <Group>
-        <Title order={2}>
-          User Detail
-        </Title>
-      </Group>
+    <>
+    <Stack miw={500}>
+      <Title order={2}>
+        User Detail
+      </Title>
       <UserDetailCard
         user={user}
       />
     </Stack>
+    </>
   );
 }
 

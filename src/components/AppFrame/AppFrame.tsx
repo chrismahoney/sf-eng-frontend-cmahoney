@@ -15,6 +15,7 @@ import {
 
 import SFLogo from './SFLogo.png';
 import { AppSidebarMenu } from './AppSidebarMenu';
+import { IconCirclesRelation } from '@tabler/icons-react';
 
 export function AppFrame () {
   // Burger menu open control
@@ -26,20 +27,24 @@ export function AppFrame () {
       header={{ height: 60 }}
       footer={{ height: 60 }}
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
-      aside={{ width: 300, breakpoint: 'md', collapsed: true }}
     >
       <AppShell.Header>
-        <Group align="center" justify="space-between" h="100%" px="md" style={{ minWidth: 500 }}>
+        <Group align="center" justify="flex-start" h="100%" px="md" 
+          style={{ 
+            background: "rgb(2,0,36)",
+            background: "linear-gradient(94deg, rgba(2,0,36,0) 0%, rgba(9,1,50,0) 58%, rgba(16,3,64,1) 67%, rgba(44,9,121,1) 81%, rgba(0,212,255,1) 100%)"
+          }}
+        >
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-          <img src={SFLogo} style={{ maxHeight: '2em' }} />
 
-          <Title order={2} style={{
-            fontSize: '1.1em',
-            fontWeight: 400,
-            fontFamily: 'Roboto, sans-serif'
-          }}>
-            Clear Connect
-          </Title>
+          <Group justify="flex-end" align="center">
+            <Title order={2} style={{
+              fontWeight: 200,
+              fontFamily: 'Roboto, sans-serif'
+            }}>
+              Clear <IconCirclesRelation size={36} stroke={0.8} /> Connect
+            </Title>
+          </Group>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p={0}>
@@ -58,7 +63,8 @@ export function AppFrame () {
           background: "linear-gradient(218deg, rgba(2,0,36,1) 0%, rgba(44,9,121,1) 35%, rgba(0,212,255,1) 100%)",
         }}
       >
-        <Group justify="flex-end" align="center">
+        <Group justify="space-between" align="center" mt={3}>
+          <img src={SFLogo} style={{ maxHeight: '1.3em' }} /> 
           <Title order={6}>
             Chris Mahoney, 2024
           </Title>

@@ -1,5 +1,6 @@
-import { Center, Stack, Title } from "@mantine/core";
-import TreeView from "../components/Charting/TreeView";
+import { Stack, Title } from "@mantine/core";
+import HomeDashboard from "../components/Charting/HomeDashboard";
+
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
         <Title order={2}>
           Welcome
         </Title>
+        <HomeDashboard /> 
       </Stack>
   );
 }
