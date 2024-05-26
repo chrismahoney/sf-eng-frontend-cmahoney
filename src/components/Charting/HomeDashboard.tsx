@@ -1,24 +1,17 @@
-import { Grid, Title } from '@mantine/core';
+import { Container, Flex, Grid, Title } from '@mantine/core';
+import DataTable from '../DataTable/DataTable';
 
 export default function HomeDashboard () {
   return (
-    <></>
-    // <Grid grow style={{ minWidth: 500 }}>
-    //   <Grid.Col span={4}>
-    //     <Title order={2}>1</Title>
-    //   </Grid.Col>
-    //   <Grid.Col span={4}>
-    //     <Title order={2}>2</Title>
-    //   </Grid.Col>
-    //   <Grid.Col span={4}>
-    //     <Title order={2}>3</Title>
-    //   </Grid.Col>
-    //   <Grid.Col span={4}>
-    //     <Title order={2}>4</Title>
-    //   </Grid.Col>
-    //   <Grid.Col span={4}>
-    //     <Title order={2}>5</Title>
-    //   </Grid.Col>
-    // </Grid>
+    <div>
+      <Grid>
+        <Grid.Col>
+          <Title order={2}>Home</Title>
+        </Grid.Col>
+        <Grid.Col span="auto">
+          Welcome to Clear Connect
+        </Grid.Col>
+      </Grid>
+    </div>
   );
 }
