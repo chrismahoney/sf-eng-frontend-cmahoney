@@ -7,7 +7,6 @@ import {
   AppShell, 
   Burger,
   Group,
-  Skeleton,
   Title,
 } from '@mantine/core';
 import {
@@ -27,10 +26,10 @@ export function AppFrame () {
     <AppShell
       transitionDuration={500}
       transitionTimingFunction="ease"
-      padding={"xs"}
+      padding={"md"}
       header={{ height: 60 }}
       navbar={{
-        width: 300,
+        width: 225,
         breakpoint: 'xs',
         collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
       }}
@@ -58,7 +57,7 @@ export function AppFrame () {
           </Group>
         </Group>
       </AppShell.Header>
-      <AppShell.Navbar p={0}>
+      <AppShell.Navbar>
         <AppSidebarMenu />
       </AppShell.Navbar>
       <AppShell.Main>
