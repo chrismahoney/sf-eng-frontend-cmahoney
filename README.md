@@ -93,7 +93,7 @@ The interface is a simple React application that allows for the following:
 
 ![Clear Connect](./docs/cli-clearconnect.gif)
 
-Within the `cli` directory is `explorer.js`, which can be called via NodeJS to *evaluate the dataset associated with a user or an organiation*.
+Within the `cli` directory is `explorer.js`, which can be called via NodeJS to *evaluate the dataset associated with a user or an organization*.
 
 ### Usage
 
