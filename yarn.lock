@@ -1849,6 +1849,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+mantine-datatable@^7.9.1:
+  version "7.9.1"
+  resolved "https://registry.yarnpkg.com/mantine-datatable/-/mantine-datatable-7.9.1.tgz#669be853d50c62625e9c82384a4d1c502203ad89"
+  integrity sha512-CmsP0GzrLfYxGq7PW6+fGSr8NGheN/0rxSxMBghsJOdfsjzVOq6zycgOyOcpE9gCw5X01RvQoUs1RP+MH2Tj9A==
+
 merge2@^1.3.0, merge2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"

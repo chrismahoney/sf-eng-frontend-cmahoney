@@ -141,7 +141,7 @@ const SunburstVisualizer = (props) => {
   }, [data]);
 
   // Render svg with explicit bounds and ref
-  return <svg id="sunburst-visualizer" width={450} height={450} ref={ref} />;
+  return <svg id="sunburst-visualizer" width={650} height={450} ref={ref} />;
 };
 
 export default SunburstVisualizer;

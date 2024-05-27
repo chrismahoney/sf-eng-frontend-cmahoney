@@ -1,19 +1,18 @@
 import {
   IconBellRinging,
   IconUsers,
-  IconSwitchHorizontal,
   IconDice1,
   IconHome,
 } from '@tabler/icons-react';
 import classes from './AppSidebarMenu.module.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Stack } from '@mantine/core';
 
 const tabs = {
   main: [
     { link: '/', label: 'Home', icon: IconHome },
-    { link: '/orgs', label: 'Org Data', icon: IconBellRinging },
-    { link: '/users', label: 'User Data', icon: IconUsers },
+    // { link: '/orgs', label: 'Organizations', icon: IconBellRinging },
+    { link: '/users', label: 'Users', icon: IconUsers },
     { link: '/users/random', label: 'Random User', icon: IconDice1 },
   ],
 };

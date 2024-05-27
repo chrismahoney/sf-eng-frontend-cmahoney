@@ -1,11 +1,18 @@
-import { Link, useLoaderData } from 'react-router-dom';
-import DataTable from '../components/DataTable/DataTable';
-import { Avatar, Stack, Table, Title } from '@mantine/core';
+import { useEffect, useState } from 'react';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+
+import { Avatar, Grid, Pagination, Paper, Stack, Table, Text, Title } from '@mantine/core';
+import {
+  DataTable
+} from 'mantine-datatable';
 
 const UserList = () => {
+  const navigate = useNavigate();
   const users = useLoaderData();
+  const [isFetching, setIsFetching] = useState(false);
 
   if (users.isLoading) {
+    setIsFetching(true);
     return <div>Loading...</div>;
   }
 
@@ -13,49 +20,55 @@ const UserList = () => {
     return <div>Error loading users.</div>;
   }
 
-  const tableHeaders = (
-    <Table.Tr key="headers">
-      <Table.Th></Table.Th>
-      <Table.Th>First Name</Table.Th>
-      <Table.Th>Last Name</Table.Th>
-      <Table.Th>Email</Table.Th>
-      <Table.Th>Interested In</Table.Th>
-      <Table.Th>Matches</Table.Th>
-    </Table.Tr>
-  );
+  useEffect(() => {
+    if (!users || users.isLoading) return;
 
-  const rowElements = users.data.map((row) => (
-    <Table.Tr key={row.user_id}>
-      <Table.Td>
-        <Avatar 
-          variant="transparent" 
-          radius="md" 
-          size="md" 
-          src={row.user_image} 
-        />
-      </Table.Td>
-      <Table.Td>
-        <Link to={`${row.user_id}`}>
-          {row.first_name}
-        </Link>
-      </Table.Td>
-      <Table.Td>{row.last_name}</Table.Td>
-      <Table.Td>{row.email}</Table.Td>
-      <Table.Td>{row.interested_in.length}</Table.Td>
-      <Table.Td>{row.matches.length}</Table.Td>
-    </Table.Tr>
-  ));
-
+    setIsFetching(false);
+  }, [users]);
+  console.log('Users:', users);
+  
   return (
     <Stack>
       <Title order={2}>
         Users
       </Title>
-      <DataTable
-        tableHeaders={tableHeaders}
-        rowElements={rowElements}
-        data={users}
-      />
+      <Text>Use the table below in order to explore information about registered users. These users have expressed interest in various roles, and these interests are matched against available roles provided by organizations.</Text>
+      <Text>For more information about participant organizations, please see the <Link to="/orgs">Organizations</Link> page.</Text>
+      <Grid>
+        <Grid.Col span={{ xs: 12 }}>
+          <DataTable
+            // Styling
+            withTableBorder
+            borderRadius="md"
+            minHeight={180}
+            // Data
+            columns={[
+              { 
+                accessor: 'user_image',
+                render: (record) => <Avatar src={record.user_image} size="lg" radius="xl" />,
+              },
+              { accessor: 'first_name' }, 
+              { accessor: 'last_name' }, 
+              { 
+                accessor: 'email',
+                render: (record) => <Text>{record.email ? record.email : <em style={{ color: '#777' }}>N/A</em>}</Text>
+              }
+            ]}
+            idAccessor="user_id"
+            records={users.data}
+            fetching={isFetching}
+            // Loader UI
+            loaderType="dots"
+            loaderSize="xl"
+            loaderColor="blue"
+            loaderBackgroundBlur={1}
+            // Event handlers
+            onRowClick={({ record, index, event }) => {
+              navigate(`/users/${record.user_id}`);
+            }}
+          />
+        </Grid.Col>
+      </Grid>
     </Stack>
   );
 };

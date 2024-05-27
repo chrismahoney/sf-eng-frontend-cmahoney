@@ -1,5 +1,4 @@
 import { Link, useLoaderData } from 'react-router-dom';
-import DataTable from '../components/DataTable/DataTable';
 import { Center, Stack, Table, Title } from '@mantine/core';
 
 const OrgList = () => {
@@ -40,11 +39,11 @@ const OrgList = () => {
       <Title order={2}>
         Organizations
       </Title>
-      <DataTable
+      {/* <DataTable
         tableHeaders={tableHeaders}
         rowElements={rowElements}
         data={orgs}
-      />
+      /> */}
     </Stack>
   );
 };

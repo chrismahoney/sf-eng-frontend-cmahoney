@@ -1,6 +1,8 @@
 import { Container, Group, Paper } from '@mantine/core'
 import CollapsibleTreeVisualizer from './CollapsibleTreeVisualizer';
 import NestedTreeVisualizer from './NestedTreeVisualizer';
+import SunburstVisualizer from './SunburstVisualizer';
+import ZoomableTreemapVisualizer from './ZoomableTreemapVisualizer';
 
 /**
  * D3VisualizerBase: Contains display type, configuration and data input for the visualizer.
@@ -12,8 +14,8 @@ function D3VisualizerBase(props) {
   } = props;
 
   return (
-    <Group justify="flex-start" align="flex-start">
-      <NestedTreeVisualizer
+    <Group justify="stretch">
+      <ZoomableTreemapVisualizer
         data={data}
       />
     </Group>

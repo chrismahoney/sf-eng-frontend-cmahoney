@@ -20,7 +20,7 @@ import { IconCirclesRelation } from '@tabler/icons-react';
 export function AppFrame () {
   // Burger menu open controls
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure(false);
-  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(false);
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
   return (
     <AppShell
