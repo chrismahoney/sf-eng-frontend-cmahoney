@@ -33,6 +33,7 @@ Intention would be to either include this frontend deployment onboard the backen
 - Included docker-compose.yml file can be used to deploy the frontend, this would be intended to be used in conjunction with the backend deployment in a combined compose file.
 
 ### Project Structure
+```
 [Project Root]
 ├── App.css
 ├── App.tsx
@@ -73,6 +74,7 @@ Intention would be to either include this frontend deployment onboard the backen
 ├── index.css
 ├── main.tsx
 └── vite-env.d.ts
+```
 
 ## The Interface
 The interface is a simple React application that allows for the following:
