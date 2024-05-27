@@ -90,6 +90,9 @@ The interface is a simple React application that allows for the following:
 - A *Random User* option to displays a random user by ID
 
 ## Node CLI Utility
+
+![Clear Connect](./docs/cli-clearconnect.gif)
+
 Within the `cli` directory is `explorer.js`, which can be called via NodeJS to *evaluate the dataset associated with a user or an organiation*.
 
 ### Usage
