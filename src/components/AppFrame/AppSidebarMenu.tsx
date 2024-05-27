@@ -6,12 +6,16 @@ import {
 } from '@tabler/icons-react';
 import classes from './AppSidebarMenu.module.css';
 import { NavLink } from 'react-router-dom';
-import { Stack } from '@mantine/core';
+import { 
+  Stack,
+  Group,
+  ScrollArea
+} from '@mantine/core';
 
 const tabs = {
   main: [
     { link: '/', label: 'Home', icon: IconHome },
-    // { link: '/orgs', label: 'Organizations', icon: IconBellRinging },
+    { link: '/orgs', label: 'Organizations', icon: IconBellRinging },
     { link: '/users', label: 'Users', icon: IconUsers },
     { link: '/users/random', label: 'Random User', icon: IconDice1 },
   ],
@@ -35,9 +39,9 @@ export function AppSidebarMenu () {
 
   return (
     <nav className={classes.navbar}>
-      <Stack gap={"sm"} className={classes.navbarMain} mt={0}>
-        {links}
-      </Stack>
+      <ScrollArea className={classes.links}>
+        <div className={classes.linksInner}>{links}</div>
+      </ScrollArea>
     </nav>
   );
 }

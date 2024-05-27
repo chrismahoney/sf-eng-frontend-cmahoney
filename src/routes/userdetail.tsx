@@ -68,11 +68,20 @@ function UserDetail () {
       <Grid.Col span={{ xs: 12, sm: 6, md: 4 }}>
         <Paper mih={150} shadow="sm" radius="sm" withBorder p="sm" bg="var(--mantine-color-body)">
           <Stack gap="xs">
-            <Title order={4}>Role Interests:</Title>
-            {user.interested_in ? (
-              <Title order={1}>{user.interested_in.length} role(s)</Title>
+            <Title order={4}>Role Interests</Title>
+            {user.interested_in?.length > 0 ? (
+              <Title order={1}
+                style={{
+                  fontWeight: 200
+                }}
+              >{user.interested_in.length}</Title>
             ) : (
-              <Text>No Data Available</Text>
+              <Title order={1}
+                style={{
+                  fontWeight: 200,
+                  fontStyle: 'italic'
+                }}
+              >N/A</Title>
             )}
           </Stack>
         </Paper>
@@ -80,11 +89,20 @@ function UserDetail () {
       <Grid.Col span={{ xs: 12, sm: 6, md: 4 }}>
         <Paper mih={150} shadow="sm" radius="sm" withBorder p="sm" bg="var(--mantine-color-body)">
           <Stack gap="xs">
-            <Title order={4}>Role Matches:</Title>
-            {user.matches ? (
-              <Title order={1}>{user.matches.length} role(s)</Title>
+            <Title order={4}>Role Matches</Title>
+            {user.matches?.length > 0 ? (
+              <Title order={1}
+                style={{
+                  fontWeight: 200
+                }}
+              >{user.matches.length}</Title>
             ) : (
-              <Text>No Data Available</Text>
+              <Title order={1}
+                style={{
+                  fontWeight: 200,
+                  fontStyle: 'italic'
+                }}
+              >N/A</Title>
             )}
           </Stack>
         </Paper>

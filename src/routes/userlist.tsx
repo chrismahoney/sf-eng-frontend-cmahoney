@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
-import { Avatar, Grid, Pagination, Paper, Stack, Table, Text, Title } from '@mantine/core';
+import { Avatar, Grid, Stack, Text, Title } from '@mantine/core';
 import {
   DataTable
 } from 'mantine-datatable';
